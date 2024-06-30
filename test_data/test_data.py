@@ -1,6 +1,7 @@
 from faker import Faker
 import random
 
+
 class RegistrationData:
     def __init__(self):
         fake = Faker("pl_PL")
