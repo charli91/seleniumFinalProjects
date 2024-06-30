@@ -11,7 +11,9 @@ class RegistrationTest(BaseTest):
         self.test_data = RegistrationData()
 
     def test_no_phone_number_entered(self):
-        # TC 001: Brak podania numeru telefonu w formularzu rejestracji
+        """
+        TC 001: Brak podania numeru telefonu w formularzu rejestracji
+        """
         # KROKI:
         #     1. Kliknij ‘Sign in’
         self.auth_login_page = self.home_page.click_sign_in()
