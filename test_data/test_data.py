@@ -10,6 +10,5 @@ class RegistrationData:
         self.month_of_birth = '02'
         self.year_of_birth = '1990'
 
-
 # Adam = RegistrationData()
 # print(Adam.first_name)

@@ -10,4 +10,5 @@ class CustomerRegistrationPageLocators:
 class CustomerRegistrationPage(BasePage):
     # znalezienie pola input z imieniem
     def input_first_name_field(self, first_name):
-        self.driver.find_element(*CustomerRegistrationPageLocators.first_name_field).send_keys(first_name)
+        el = self.driver.find_element(*CustomerRegistrationPageLocators.first_name_field)
+        el.send_keys(first_name)
