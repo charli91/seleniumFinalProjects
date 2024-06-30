@@ -42,3 +42,11 @@ class RegistrationTest(BaseTest):
         #     13. Kliknij ‘Register’
         self.accept_registration = self.customer_registration_page.click_register()
         sleep(5)
+
+        # Oczekiwany rezultat
+        # 1. użytkownik otrzymuje informację, że popełnił błąd
+        # w postaci pojawienia się czerwonego okienka pod polem z błędem
+
+
+        # 2. Użytkownik otrzymuje informację, że numer telefonu jest wymagany
+

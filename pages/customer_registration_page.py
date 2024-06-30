@@ -62,3 +62,7 @@ class CustomerRegistrationPage(BasePage):
 
     def click_register(self):
         self.driver.find_element(*CustomerRegistrationPageLocators.accept_registration_button).click()
+
+    # sprawdza liczbę wyświetlonych okienek walidacyjnych
+
+    # zwraca wiadomości wysłane do użytkownika w okienkach walidacyjnych w postaci listy
