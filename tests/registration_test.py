@@ -22,12 +22,21 @@ class RegistrationTest(BaseTest):
         #     4. Wprowadź nazwisko
         self.register_last_name = self.customer_registration_page.input_last_name_field(self.test_data.last_name)
         #     5. Wprowadź datę urodzenia
+        self.register_date_of_birth = self.customer_registration_page.input_date_of_birth(self.test_data.date_of_birth)
         #     6. Wprowadź adres
+        self.register_address = self.customer_registration_page.input_address(self.test_data.address)
         #     7. Wprowadź kod pocztowy
+        self.register_postcode = self.customer_registration_page.input_postal_code(self.test_data.postal_code)
         #     8. Wprowadź Miasto
+        self.register_city = self.customer_registration_page.input_city(self.test_data.city)
         #     9. Wprowadź województwo (stan)
+        self.register_state = self.customer_registration_page.input_state(self.test_data.state)
         #     10. Wybierz z listy rozwijanej kraj
         self.register_country = self.customer_registration_page.select_country(self.test_data.country)
         #     11. Wprowadź adres email
+        self.register_email = self.customer_registration_page.input_email(self.test_data.email)
         #     12. Wprowadź hasło min. 6 znaków
+        self.register_passwd = self.customer_registration_page.input_passwd(self.test_data.passwd)
         #     13. Kliknij ‘Register’
+        self.accept_registration = self.customer_registration_page.click_register()
+        sleep(5)
