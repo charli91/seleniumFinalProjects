@@ -27,6 +27,7 @@ class RegistrationTest(BaseTest):
         #     8. Wprowadź Miasto
         #     9. Wprowadź województwo (stan)
         #     10. Wybierz z listy rozwijanej kraj
+        self.register_country = self.customer_registration_page.select_country(self.test_data.country)
         #     11. Wprowadź adres email
         #     12. Wprowadź hasło min. 6 znaków
         #     13. Kliknij ‘Register’

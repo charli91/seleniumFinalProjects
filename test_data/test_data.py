@@ -9,6 +9,7 @@ class RegistrationData:
         self.day_of_birth = '11'
         self.month_of_birth = '02'
         self.year_of_birth = '1990'
+        self.country = 'PL'
 
 # Adam = RegistrationData()
 # print(Adam.first_name)

@@ -12,6 +12,7 @@ class CustomerRegistrationPageLocators:
     # Miasto
     # województwo (stan)
     # wybierz z listy- kraj
+    choose_country_field = (By.XPATH, "//select[@data-test='country']")
     # wprowadź adres email
     # wprowadź hasło min. 6 znaków
     # button register
@@ -24,4 +25,8 @@ class CustomerRegistrationPage(BasePage):
         el.send_keys(first_name)
 
     def input_last_name_field(self, last_name):
-        self.driver.find_element(*CustomerRegistrationPageLocators.last_name_field)
+        self.driver.find_element(*CustomerRegistrationPageLocators.last_name_field).send_keys(last_name)
+
+    def select_country(self, country):
+        country_select = Select(self.driver.find_element(*CustomerRegistrationPageLocators.choose_country_field))
+        country_select.select_by_value(country)
