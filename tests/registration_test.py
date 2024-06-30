@@ -18,9 +18,9 @@ class RegistrationTest(BaseTest):
         #     2. Kliknij ‘Register your account’
         self.register = self.auth_login_page.click_register_btn()
         #     3. Wprowadź Pierwszę imię
-        self.register_first_name = self.customer_registration_page.input_first_name_field(self.test_data.first_name)
+        self.register_first_name = self.customer_registration_page.input_first_name(self.test_data.first_name)
         #     4. Wprowadź nazwisko
-        self.register_last_name = self.customer_registration_page.input_last_name_field(self.test_data.last_name)
+        self.register_last_name = self.customer_registration_page.input_last_name(self.test_data.last_name)
         #     5. Wprowadź datę urodzenia
         self.register_date_of_birth = self.customer_registration_page.input_date_of_birth(self.test_data.date_of_birth)
         #     6. Wprowadź adres
