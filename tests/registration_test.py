@@ -46,7 +46,8 @@ class RegistrationTest(BaseTest):
         # Oczekiwany rezultat
         # 1. użytkownik otrzymuje informację, że popełnił błąd
         # w postaci pojawienia się czerwonego okienka pod polem z błędem
-
+        # "col-lg-8 auth-form" > klasa, ktora zawiera cały formularz rejestracji
 
         # 2. Użytkownik otrzymuje informację, że numer telefonu jest wymagany
-
+        # pobranie wiadomości walidacyjnych
+        self.test = self.customer_registration_page.get_error_messages()

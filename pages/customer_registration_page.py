@@ -24,6 +24,8 @@ class CustomerRegistrationPageLocators:
     passwd_field = (By.XPATH, "//input[@data-test='password']")
     # button register
     accept_registration_button = (By.XPATH, "//button[@data-test='register-submit']")
+    # wszystkie wiadomości walidacyjne
+    error_validation_messages = (By.XPATH, "//div/form[@data-test='register-form']//*[contains(text(), 'is required')]")
 
 
 class CustomerRegistrationPage(BasePage):
@@ -66,3 +68,11 @@ class CustomerRegistrationPage(BasePage):
     # sprawdza liczbę wyświetlonych okienek walidacyjnych
 
     # zwraca wiadomości wysłane do użytkownika w okienkach walidacyjnych w postaci listy
+    def get_error_messages(self):
+        # znalezienie każdego elementu z wiadomością walidacyjną
+        error = self.driver.find_elements(*CustomerRegistrationPageLocators.error_validation_messages)
+        error_validation_messages = []
+        for e in error:
+            error_validation_messages.append(e.text)
+        # print(error_validation_messages)
+        return error_validation_messages

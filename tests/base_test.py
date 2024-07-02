@@ -5,6 +5,7 @@ from pages.auth_login_page import AuthLoginPage
 from pages.home_page import HomePage
 from pages.customer_registration_page import CustomerRegistrationPage
 
+
 class BaseTest(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
