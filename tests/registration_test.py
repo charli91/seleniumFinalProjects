@@ -41,13 +41,15 @@ class RegistrationTest(BaseTest):
         self.register_passwd = self.customer_registration_page.input_passwd(self.test_data.passwd)
         #     13. Kliknij ‘Register’
         self.accept_registration = self.customer_registration_page.click_register()
-        sleep(5)
 
-        # Oczekiwany rezultat
-        # 1. użytkownik otrzymuje informację, że popełnił błąd
-        # w postaci pojawienia się czerwonego okienka pod polem z błędem
-        # "col-lg-8 auth-form" > klasa, ktora zawiera cały formularz rejestracji
+        # OCZEKIWANE REZULTATY:
+        #       1. użytkownik otrzymuje informację, że popełnił błąd
+        #       w postaci pojawienia się czerwonego okienka pod polem z błędem
+        # sprawdzenie, czy istnieje walidacja
+        self.phone_number_validation = self.customer_registration_page.get_phone_number_validation_message()
 
-        # 2. Użytkownik otrzymuje informację, że numer telefonu jest wymagany
-        # pobranie wiadomości walidacyjnych
-        self.test = self.customer_registration_page.get_error_messages()
+        #       2. Użytkownik otrzymuje informację, że numer telefonu jest wymagany
+        # porównanie otrzymanego komunikatu
+        self.assertEqual('Phone is required.', self.customer_registration_page.get_error_messages()[0])
+
+        #       3. Na ekranie wyświetla się tylko jedna wiadomość walidacyjna

@@ -26,6 +26,9 @@ class CustomerRegistrationPageLocators:
     accept_registration_button = (By.XPATH, "//button[@data-test='register-submit']")
     # wszystkie wiadomości walidacyjne
     error_validation_messages = (By.XPATH, "//div/form[@data-test='register-form']//*[contains(text(), 'is required')]")
+    # walidacja numeru telefonu i znajduje się bezpośrednio pod numerem telefonu
+    error_phone_required = (By.XPATH, "//div[contains(text(), 'is required')]/ancestor::div["
+                                      "contains(@data-test, 'phone-error')]")
 
 
 class CustomerRegistrationPage(BasePage):
@@ -76,3 +79,7 @@ class CustomerRegistrationPage(BasePage):
             error_validation_messages.append(e.text)
         # print(error_validation_messages)
         return error_validation_messages
+
+    def get_phone_number_validation_message(self):
+        validation_message = self.driver.find_element(*CustomerRegistrationPageLocators.error_phone_required)
+        return validation_message
