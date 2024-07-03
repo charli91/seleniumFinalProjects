@@ -18,3 +18,4 @@ class RegistrationData:
 
 # Adam = RegistrationData()
 # print(Adam.first_name)
+# adding one comment for test
