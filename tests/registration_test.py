@@ -53,3 +53,4 @@ class RegistrationTest(BaseTest):
         self.assertEqual('Phone is required.', self.customer_registration_page.get_error_messages()[0])
 
         #       3. Na ekranie wyświetla się tylko jedna wiadomość walidacyjna
+
