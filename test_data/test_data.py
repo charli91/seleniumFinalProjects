@@ -12,8 +12,9 @@ class RegistrationData:
         self.postal_code = '00-084'
         self.city = 'Kraków'
         self.state = 'mazowieckie'
+        self.phone_number = '545555123'
         self.email = 'test@test.pl'
-        self.passwd = 'testhaslo123'
+        self.passwd = 'testHaslo%123'
 
 # Adam = RegistrationData()
 # print(Adam.first_name)

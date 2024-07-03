@@ -18,6 +18,8 @@ class CustomerRegistrationPageLocators:
     state_field = (By.XPATH, "//input[@data-test='state']")
     # wybierz z listy- kraj
     chosen_country_field = (By.XPATH, "//select[@data-test='country']")
+    # wprowadź numer telefonu
+    phone_number_field = (By.XPATH, "//input[@data-test='phone']")
     # wprowadź adres email
     email_field = (By.XPATH, "//input[@data-test='email']")
     # wprowadź hasło min. 6 znaków
@@ -59,6 +61,9 @@ class CustomerRegistrationPage(BasePage):
     def input_state(self, state):
         self.driver.find_element(*CustomerRegistrationPageLocators.state_field).send_keys(state)
 
+    def input_phone_number(self, phone_number):
+        self.driver.find_element(*CustomerRegistrationPageLocators.phone_number_field).send_keys(phone_number)
+
     def input_email(self, email):
         self.driver.find_element(*CustomerRegistrationPageLocators.email_field).send_keys(email)
 
@@ -81,5 +86,6 @@ class CustomerRegistrationPage(BasePage):
         return error_validation_messages
 
     def get_phone_number_validation_message(self):
-        validation_message = self.driver.find_element(*CustomerRegistrationPageLocators.error_phone_required)
-        return validation_message
+        validation_message_element = self.driver.find_element(*CustomerRegistrationPageLocators.error_phone_required)
+        # print(validation_message_element)
+        return validation_message_element

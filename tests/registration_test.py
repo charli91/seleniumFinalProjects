@@ -39,13 +39,24 @@ class RegistrationTest(BaseTest):
         self.register_email = self.customer_registration_page.input_email(self.test_data.email)
         #     12. Wprowadź hasło min. 6 znaków
         self.register_passwd = self.customer_registration_page.input_passwd(self.test_data.passwd)
-        #     13. Kliknij ‘Register’
+        # # testowo- jakby był dodany nr tel- czyli jakby walidacja się nie pojawiła
+        # self.register_phone_number = self.customer_registration_page.input_phone_number(self.test_data.phone_number)
+        #    13. Kliknij ‘Register’
         self.accept_registration = self.customer_registration_page.click_register()
+
+
 
         # OCZEKIWANE REZULTATY:
         #       1. użytkownik otrzymuje informację, że popełnił błąd
         #       w postaci pojawienia się czerwonego okienka pod polem z błędem
         # sprawdzenie, czy istnieje walidacja
+        # to niżej powoduje, że test przechodzi na pass nawet, jak nie ma tej walidacji..
+        # while True:
+        #     try:
+        #         self.phone_number_validation = self.customer_registration_page.get_phone_number_validation_message()
+        #         break
+        #     except Exception:
+        #         break
         self.phone_number_validation = self.customer_registration_page.get_phone_number_validation_message()
 
         #       2. Użytkownik otrzymuje informację, że numer telefonu jest wymagany
@@ -53,3 +64,4 @@ class RegistrationTest(BaseTest):
         self.assertEqual('Phone is required.', self.customer_registration_page.get_error_messages()[0])
 
         #       3. Na ekranie wyświetla się tylko jedna wiadomość walidacyjna
+        self.assertEqual(1, len(self.customer_registration_page.get_error_messages()))
