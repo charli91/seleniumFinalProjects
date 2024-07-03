@@ -16,5 +16,9 @@ class RegistrationData:
         self.email = 'test@test.pl'
         self.passwd = 'testHaslo%123'
 
+class get_csv_data:
+    def get_data:
+        pass
+
 # Adam = RegistrationData()
 # print(Adam.first_name)
