@@ -17,7 +17,7 @@ class RegistrationData:
         self.passwd = 'testHaslo%123'
 
 class get_csv_data:
-    def get_data:
+    def get_data(self):
         pass
 
 # Adam = RegistrationData()
