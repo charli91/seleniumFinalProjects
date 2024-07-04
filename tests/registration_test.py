@@ -97,3 +97,6 @@ class RegistrationTest(BaseTest):
         #    11. Kliknij ‘Register’
         self.accept_registration = self.customer_registration_page.click_register()
         sleep(5)
+        """
+        TODO: ASSERTIONS IN 2ND TC
+        """
