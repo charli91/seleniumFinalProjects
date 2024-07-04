@@ -1,3 +1,5 @@
+import csv
+
 
 class RegistrationDataManual:
     def __init__(self):
@@ -16,3 +18,14 @@ class RegistrationDataManual:
 
 # Adam = RegistrationData()
 # print(Adam.first_name)
+
+
+def get_csv_data(filename):
+    rows = []
+    data_file = open(filename, "r")
+    reader = csv.reader(data_file)
+    # skipping row with headers
+    next(reader, None)
+    for row in reader:
+        rows.append(row)
+    return rows

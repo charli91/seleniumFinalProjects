@@ -1,9 +1,12 @@
 from tests.base_test import BaseTest
 from test_data.test_data_manual import RegistrationDataManual
 from test_data.test_data_faker import RegistrationDataFaker
+import test_data.test_data_manual
 from time import sleep
+from ddt import ddt, data, unpack
 
 
+@ddt
 class RegistrationTest(BaseTest):
     # Scenariusz 1: rejestracja nowego użytkownika
     def setUp(self):
@@ -96,7 +99,16 @@ class RegistrationTest(BaseTest):
         self.register_passwd = self.customer_registration_page.input_passwd(self.data_faker.passwd)
         #    11. Kliknij ‘Register’
         self.accept_registration = self.customer_registration_page.click_register()
-        sleep(5)
+        # sleep(5)
         """
         TODO: ASSERTIONS IN 2ND TC
         """
+
+    @data(*test_data.test_data_manual.get_csv_data())
+    def test_not_strong_enough_password(self):
+        """
+                TC 001:
+                """
+        # KROKI:
+        #       1.
+        pass
