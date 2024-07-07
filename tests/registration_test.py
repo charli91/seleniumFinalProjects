@@ -55,7 +55,7 @@ class RegistrationTest(BaseTest):
         #       1. użytkownik otrzymuje informację, że popełnił błąd
         #       w postaci pojawienia się czerwonego okienka pod polem z błędem
         # sprawdzenie, czy istnieje walidacja;
-        # to niżej powoduje, że test przechodzi na pass nawet, jak nie ma tej walidacji.
+        # to niżej powoduje, że test przechodzi jako pass nawet, jak nie ma tej walidacji.
         # while True:
         #     try:
         #         self.phone_number_validation = self.customer_registration_page.get_phone_number_validation_message()
@@ -79,8 +79,6 @@ class RegistrationTest(BaseTest):
         # KROKI:
         #     1. Wprowadź imię
         self.register_first_name = self.customer_registration_page.input_first_name(self.data_faker.first_name)
-        #     2. Wprowadź nazwisko
-        self.register_last_name = self.customer_registration_page.input_last_name(self.data_manual.last_name)
         #     3. Wprowadź datę urodzenia
         self.register_date_of_birth = self.customer_registration_page.input_date_of_birth(self.data_faker.date_of_birth)
         #     4. Wprowadź adres
@@ -97,47 +95,7 @@ class RegistrationTest(BaseTest):
         self.register_phone_number = self.customer_registration_page.input_phone_number(self.data_faker.phone_number)
         #     10. Wprowadź adres email
         self.register_email = self.customer_registration_page.input_email(self.data_faker.email)
-        #    11. Kliknij ‘Register’
-        self.accept_registration = self.customer_registration_page.click_register()
-        # sleep(5)
-
-        # OCZEKIWANE REZULTATY:
-        #       1. użytkownik otrzymuje informację, że popełnił błąd
-        #       w postaci pojawienia się czerwonego okienka pod polem z błędem
-        self.las_name_validation = self.customer_registration_page.get_last_name_validation_message()
-        #       2. Użytkownik otrzymuje informację, że nazwisko jest wymagane
-        self.assertEqual('Last name is required.', self.customer_registration_page.get_error_messages()[0])
-
-        #     3. Na stronie znajduje się tylko jedna wiadomość walidacyjna
-        self.assertEqual(1, len(self.customer_registration_page.get_error_messages()))
-
-
-    @data(*test_data.test_data_manual.get_csv_data("../test_data/registration_data.csv"))
-    def test_no_password_entered(self, first_name, last_name, birthday, address, postal_code,
-                                 city, state, country, phone_number, email):
-        """
-        TC 003: Brak podania hasła w formularzu rejestracji
-        """
-        # KROKI:
-        #     1. Wprowadź imię
-        self.register_first_name = self.customer_registration_page.input_first_name(self.data_faker.first_name)
-        #     2. Wprowadź datę urodzenia
-        self.register_date_of_birth = self.customer_registration_page.input_date_of_birth(self.data_faker.date_of_birth)
-        #     3. Wprowadź adres
-        self.register_address = self.customer_registration_page.input_address(self.data_faker.address)
-        #     4. Wprowadź kod pocztowy
-        self.register_postcode = self.customer_registration_page.input_postal_code(self.data_faker.postal_code)
-        #     5. Wprowadź Miasto
-        self.register_city = self.customer_registration_page.input_city(self.data_faker.city)
-        #     6. Wprowadź województwo (stan)
-        self.register_state = self.customer_registration_page.input_state(self.data_faker.state)
-        #     7. Wybierz z listy rozwijanej kraj
-        self.register_country = self.customer_registration_page.select_country(self.data_faker.country)
-        #     8. Wprowadź numer telefonu
-        self.register_phone_number = self.customer_registration_page.input_phone_number(self.data_faker.phone_number)
-        #     9. Wprowadź adres email
-        self.register_email = self.customer_registration_page.input_email(self.data_faker.email)
-        #     10. Wprowadź hasło min. 6 znaków
+        #     11. Wprowadź hasło
         self.register_passwd = self.customer_registration_page.input_passwd(self.data_faker.passwd)
         #    11. Kliknij ‘Register’
         self.accept_registration = self.customer_registration_page.click_register()
@@ -152,6 +110,38 @@ class RegistrationTest(BaseTest):
 
         #     3. Na stronie znajduje się tylko jedna wiadomość walidacyjna
         self.assertEqual(1, len(self.customer_registration_page.get_error_messages()))
+
+    @data(*test_data.test_data_manual.get_csv_data("../test_data/registration_data.csv"))
+    @unpack
+    def test_no_password_entered_ddt(self, first_name, last_name, birthday, address, postal_code,
+                                     city, state, country, phone_number, email):
+        """
+        TC 003: Brak podania hasła w formularzu rejestracji
+        """
+        # KROKI:
+        #     1. Wprowadź imię
+        self.register_first_name = self.customer_registration_page.input_first_name(first_name)
+        #     2. Wprowadź nazwisko
+        self.register_last_name = self.customer_registration_page.input_last_name(last_name)
+        #     3. Wprowadź datę urodzenia
+        self.register_date_of_birth = self.customer_registration_page.input_date_of_birth(birthday)
+        #     4. Wprowadź adres
+        self.register_address = self.customer_registration_page.input_address(address)
+        #     5. Wprowadź kod pocztowy
+        self.register_postcode = self.customer_registration_page.input_postal_code(postal_code)
+        #     6. Wprowadź Miasto
+        self.register_city = self.customer_registration_page.input_city(city)
+        #     7. Wprowadź województwo (stan)
+        self.register_state = self.customer_registration_page.input_state(state)
+        #     8. Wybierz z listy rozwijanej kraj
+        self.register_country = self.customer_registration_page.select_country(country)
+        #     9. Wprowadź numer telefonu
+        self.register_phone_number = self.customer_registration_page.input_phone_number(phone_number)
+        #     10. Wprowadź adres email
+        self.register_email = self.customer_registration_page.input_email(email)
+        #    11. Kliknij ‘Register’
+        self.accept_registration = self.customer_registration_page.click_register()
+        # sleep(5)
 
         # OCZEKIWANE REZULTATY:
         #       1. użytkownik otrzymuje informację, że popełnił błąd
