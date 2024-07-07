@@ -27,11 +27,14 @@ class CustomerRegistrationPageLocators:
     # button register
     accept_registration_button = (By.XPATH, "//button[@data-test='register-submit']")
     # wszystkie wiadomości walidacyjne
-    error_validation_messages = (By.XPATH, "//div/form[@data-test='register-form']//*[contains(text(), 'is required')]")
+    error_validation_messages = (By.XPATH, "//div/form[@data-test='register-form']//*[contains(text(), 'required')]")
     # walidacja numeru telefonu i znajduje się bezpośrednio pod numerem telefonu
     error_phone_required = (By.XPATH, "//div[contains(text(), 'is required')]/ancestor::div["
                                       "contains(@data-test, 'phone-error')]")
-
+    error_last_name_required = (By.XPATH, "//div[contains(text(), 'required')]/ancestor::div[contains"
+                                          "(@data-test, 'last-name-error')]")
+    error_password_required = (By.XPATH, "//div[contains(text(), 'required')]/ancestor::div[contains"
+                                          "(@data-test, 'last-name-error')]")
 
 class CustomerRegistrationPage(BasePage):
     # znalezienie pola input z imieniem
@@ -88,4 +91,12 @@ class CustomerRegistrationPage(BasePage):
     def get_phone_number_validation_message(self):
         validation_message_element = self.driver.find_element(*CustomerRegistrationPageLocators.error_phone_required)
         # print(validation_message_element)
+        return validation_message_element
+
+    def get_last_name_validation_message(self):
+        validation_message_element = self.driver.find_element(*CustomerRegistrationPageLocators.error_last_name_required)
+        return validation_message_element
+
+    def get_password_validation_message(self):
+        validation_message_element = self.driver.find_element(*CustomerRegistrationPageLocators.error_password_required)
         return validation_message_element
