@@ -34,7 +34,8 @@ class CustomerRegistrationPageLocators:
     error_last_name_required = (By.XPATH, "//div[contains(text(), 'required')]/ancestor::div[contains"
                                           "(@data-test, 'last-name-error')]")
     error_password_required = (By.XPATH, "//div[contains(text(), 'required')]/ancestor::div[contains"
-                                          "(@data-test, 'last-name-error')]")
+                                         "(@data-test, 'password-error')]")
+
 
 class CustomerRegistrationPage(BasePage):
     # znalezienie pola input z imieniem
@@ -94,7 +95,8 @@ class CustomerRegistrationPage(BasePage):
         return validation_message_element
 
     def get_last_name_validation_message(self):
-        validation_message_element = self.driver.find_element(*CustomerRegistrationPageLocators.error_last_name_required)
+        validation_message_element = self.driver.find_element(
+            *CustomerRegistrationPageLocators.error_last_name_required)
         return validation_message_element
 
     def get_password_validation_message(self):

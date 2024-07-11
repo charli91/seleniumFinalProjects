@@ -4,6 +4,7 @@ from test_data.test_data_faker import RegistrationDataFaker
 import test_data.test_data_manual
 from time import sleep
 from ddt import ddt, data, unpack
+import os
 
 
 @ddt
@@ -111,7 +112,7 @@ class RegistrationTest(BaseTest):
         #     3. Na stronie znajduje się tylko jedna wiadomość walidacyjna
         self.assertEqual(1, len(self.customer_registration_page.get_error_messages()))
 
-    @data(*test_data.test_data_manual.get_csv_data("../test_data/registration_data.csv"))
+    @data(*test_data.test_data_manual.get_csv_data("../test_data/registration_dataCSV.csv"))
     @unpack
     def test_no_password_entered_ddt(self, first_name, last_name, birthday, address, postal_code,
                                      city, state, country, phone_number, email):
@@ -141,14 +142,14 @@ class RegistrationTest(BaseTest):
         self.register_email = self.customer_registration_page.input_email(email)
         #    11. Kliknij ‘Register’
         self.accept_registration = self.customer_registration_page.click_register()
-        # sleep(5)
+        # sleep(8)
 
         # OCZEKIWANE REZULTATY:
         #       1. użytkownik otrzymuje informację, że popełnił błąd
         #       w postaci pojawienia się czerwonego okienka pod polem z błędem
         self.password_validation = self.customer_registration_page.get_password_validation_message()
         #       2. Użytkownik otrzymuje informację, że nazwisko jest wymagane
-        self.assertEqual('Password is required.', self.customer_registration_page.get_error_messages()[0])
+        self.assertEqual('Password is required', self.customer_registration_page.get_error_messages()[0])
 
         #     3. Na stronie znajduje się tylko jedna wiadomość walidacyjna
         self.assertEqual(1, len(self.customer_registration_page.get_error_messages()))
