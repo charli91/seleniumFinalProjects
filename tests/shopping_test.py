@@ -15,18 +15,18 @@ class ShoppingTest(BaseTest):
 
     def test_adding_product_to_cart(self):
         """
-        TC 001: Dodanie produktów do koszyka
+        TC 001: Dodanie pierwszego produktu do koszyka
         """
         # KROKI:
         #   1. Kliknij przycisk 'Add to cart'
         self.click_add_to_cart = self.product_page.click_add_to_cart
-        #   2. Kliknij ponownie przycisk 'Add to cart'
-        #       1.najpierw sprawdzić sobie, że koszyk ikonka się nie wyświetla w ogóle
-        #       potem dodać jeden produkt, sprawdzić pierwszy raz, że pojawiła się ikona koszyka z numerem 1
-        #       potem dodać drugi raz klik i sprawdzić, że zmieniła się ikonka na 2
+
 
         # OCZEKIWANE REZULTATY:
         #       1. Użytkownik otrzymuje informację o dodaniu produktu do koszyka poprzez
         #       wyświetlenie toast message
-        #       2. Po dodaniu pierwszego produktu pojawia się ikonka
+        # sleep(3)
+        # self.assertEqual(self.product_page.get_added_to_cart_toast_message(), '1')
+        # sleep(3)
+        #       2. Po dodaniu pierwszego produktu pojawia się ikonka z jedynką
         pass

@@ -57,6 +57,7 @@ class RegistrationTest(BaseTest):
         #       w postaci pojawienia się czerwonego okienka pod polem z błędem
         # sprawdzenie, czy istnieje walidacja;
         # to niżej powoduje, że test przechodzi jako pass nawet, jak nie ma tej walidacji.
+        # wymyślić jak ten krok sprawdzić inaczej?
         # while True:
         #     try:
         #         self.phone_number_validation = self.customer_registration_page.get_phone_number_validation_message()
