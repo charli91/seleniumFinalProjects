@@ -47,7 +47,7 @@ class RegistrationTest(BaseTest):
         self.register_email = self.customer_registration_page.input_email(self.data_manual.email)
         #     10. Wprowadź hasło min. 6 znaków
         self.register_passwd = self.customer_registration_page.input_passwd(self.data_manual.passwd)
-        # # testowo- jakby był dodany nr tel.- czyli jakby walidacja się nie pojawiła
+        # # testowy fragment- jakby był dodany nr tel.- czyli jakby walidacja się nie pojawiła
         # self.register_phone_number = self.customer_registration_page.input_phone_number(self.test_data.phone_number)
         #    11. Kliknij ‘Register’
         self.accept_registration = self.customer_registration_page.click_register()
@@ -105,7 +105,7 @@ class RegistrationTest(BaseTest):
         # OCZEKIWANE REZULTATY:
         #       1. użytkownik otrzymuje informację, że popełnił błąd
         #       w postaci pojawienia się czerwonego okienka pod polem z błędem
-        self.las_name_validation = self.customer_registration_page.get_last_name_validation_message()
+        self.last_name_validation = self.customer_registration_page.get_last_name_validation_message()
         #       2. Użytkownik otrzymuje informację, że nazwisko jest wymagane
         self.assertEqual('Last name is required.', self.customer_registration_page.get_error_messages()[0])
 

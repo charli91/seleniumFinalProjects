@@ -4,6 +4,7 @@ from selenium import webdriver
 from pages.auth_login_page import AuthLoginPage
 from pages.home_page import HomePage
 from pages.customer_registration_page import CustomerRegistrationPage
+from pages.product_page import ProductPage
 
 
 class BaseTest(unittest.TestCase):
@@ -17,6 +18,7 @@ class BaseTest(unittest.TestCase):
         self.home_page = HomePage(self.driver)
         self.auth_login_page = AuthLoginPage(self.driver)
         self.customer_registration_page = CustomerRegistrationPage(self.driver)
+        self.product_page = ProductPage(self.driver)
 
     def tearDown(self):
         self.driver.quit()

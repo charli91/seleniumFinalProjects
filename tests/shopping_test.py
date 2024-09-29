@@ -11,6 +11,7 @@ class ShoppingTest(BaseTest):
         #   1. Użytkownik niezalogowany
         #   2. Użytkownik znajduje się na stronie dowolnego produktu
         self.go_to_product_page = self.home_page.click_any_product()
+        #   3. Użytkownik nie posiada żadnych produktów w koszyku
 
     def test_adding_product_to_cart(self):
         """
@@ -18,10 +19,14 @@ class ShoppingTest(BaseTest):
         """
         # KROKI:
         #   1. Kliknij przycisk 'Add to cart'
-
+        self.click_add_to_cart = self.product_page.click_add_to_cart
         #   2. Kliknij ponownie przycisk 'Add to cart'
         #       1.najpierw sprawdzić sobie, że koszyk ikonka się nie wyświetla w ogóle
         #       potem dodać jeden produkt, sprawdzić pierwszy raz, że pojawiła się ikona koszyka z numerem 1
         #       potem dodać drugi raz klik i sprawdzić, że zmieniła się ikonka na 2
 
+        # OCZEKIWANE REZULTATY:
+        #       1. Użytkownik otrzymuje informację o dodaniu produktu do koszyka poprzez
+        #       wyświetlenie toast message
+        #       2. Po dodaniu pierwszego produktu pojawia się ikonka
         pass
