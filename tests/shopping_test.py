@@ -14,9 +14,12 @@ class ShoppingTest(BaseTest):
 
     def test_adding_product_to_cart(self):
         """
-        TC 001:
+        TC 001: Dodanie produktów do koszyka
         """
         # KROKI:
+        #   1. Kliknij przycisk 'Add to cart'
+
+        #   2. Kliknij ponownie przycisk 'Add to cart'
         #       1.najpierw sprawdzić sobie, że koszyk ikonka się nie wyświetla w ogóle
         #       potem dodać jeden produkt, sprawdzić pierwszy raz, że pojawiła się ikona koszyka z numerem 1
         #       potem dodać drugi raz klik i sprawdzić, że zmieniła się ikonka na 2
