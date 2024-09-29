@@ -18,7 +18,7 @@ class ShoppingTest(BaseTest):
         """
         # KROKI:
         #       1.najpierw sprawdzić sobie, że koszyk ikonka się nie wyświetla w ogóle
-        #       potem dodać jeden produkt, sprawdzić pierwszy raz że pojawiła się ikona koszyka z numerem 1
-        #       potem dodać drugi raz klik i sprawdzić, że zmieniłą sie ikonka na 2
+        #       potem dodać jeden produkt, sprawdzić pierwszy raz, że pojawiła się ikona koszyka z numerem 1
+        #       potem dodać drugi raz klik i sprawdzić, że zmieniła się ikonka na 2
 
         pass
