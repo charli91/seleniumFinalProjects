@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 
 class ProductPageLocators:
-    add_to_cart_button = (By.ID, "btn-add-to-cart")
+    add_to_cart_button = (By.XPATH, "//button[@id='btn-add-to-cart']")
     # ikona koszyk:
     cart_icon = (By.XPATH, "//a[@data-test='nav-cart']")
     # ikona z numerem:
@@ -16,8 +16,9 @@ class ProductPage(BasePage):
     # kliknięcie ikony koszyka
     def click_add_to_cart(self):
         self.driver.find_element(ProductPageLocators.add_to_cart_button).click()
-
-    # do shopping_test dodawanie do koszyka - nie działa to..
-    # def get_added_to_cart_toast_message(self):
-    #     self.driver.find_element(ProductPageLocators.toast_container).text
-    #     # self.driver.find_element(ProductPageLocators.toast_container).is_displayed()
+    # nie widać kliknięcia. a xpath jest ok
+    # do shopping_test dodawanie do koszyka - nie działa to.
+    def get_added_to_cart_toast_message(self):
+        self.driver.find_element(ProductPageLocators.toast_container).is_displayed()
+    #     # self.driver.find_element(ProductPageLocators.toast_container).text
+    #     assert self.driver.find_element(ProductPageLocators.toast_container).is_displayed()

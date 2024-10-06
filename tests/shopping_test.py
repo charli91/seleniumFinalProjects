@@ -19,14 +19,16 @@ class ShoppingTest(BaseTest):
         """
         # KROKI:
         #   1. Kliknij przycisk 'Add to cart'
+        sleep(10)
         self.click_add_to_cart = self.product_page.click_add_to_cart
-
-
-        # OCZEKIWANE REZULTATY:
-        #       1. Użytkownik otrzymuje informację o dodaniu produktu do koszyka poprzez
-        #       wyświetlenie toast message
-        # sleep(3)
-        # self.assertEqual(self.product_page.get_added_to_cart_toast_message(), '1')
-        # sleep(3)
-        #       2. Po dodaniu pierwszego produktu pojawia się ikonka z jedynką
-        pass
+        self.click_add_to_cart = self.product_page.click_add_to_cart
+        self.click_add_to_cart = self.product_page.click_add_to_cart
+        sleep(10)
+        # nie klika. sprawdzić dlaczego
+        # # OCZEKIWANE REZULTATY:
+        # #       1. Użytkownik otrzymuje informację o dodaniu produktu do koszyka poprzez
+        # #       wyświetlenie toast message
+        # sleep(5)
+        # self.assertEqual(self.product_page.get_added_to_cart_toast_message(), 1)
+        # sleep(5)
+        # #       2. Po dodaniu pierwszego produktu pojawia się ikonka z jedynką
